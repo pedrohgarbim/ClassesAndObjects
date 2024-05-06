@@ -22,8 +22,17 @@ namespace ClassesAndObjects
 
         // the public property
         public string Name { 
-            get { return _name; } 
-            set { _name = value; }
+            get { return _name; } // get accesor
+            set {
+                if (value == "")
+                {
+                  _name = "Default name";
+                }
+                else
+                {
+                    _name = value;
+                }
+            } // set accesor
         }
 
         // Default Constructor 
@@ -33,6 +42,8 @@ namespace ClassesAndObjects
             _horsepower = 5;    
             _color = "red";
         }
+
+        public int MaxSpeed { get; set; }
 
         // Partial Specification Constructor
         public Car(string name, int horsepower = 0)
@@ -74,27 +85,24 @@ namespace ClassesAndObjects
     }
 }
 
-// to know about getters and setters
 
-//public int GetHorsePower()
-//{
-//    return _horsepower*_horsepower;
-//}
-//public void SetName(string name)
-//{
-//    if(name == "")
-//    {
-//        _name = "DefaultName";
-//    }
-//    else
-//    {
-//        _name = name;
 
-//    }
-//} 
+// What is the primary purpose of using properties in C#?
 
-//public string GetName()
-//{
-//    return _name + " suffix";
-//}
+// provide controlled access to class members
+//properties allow you to provide controlled
+//access to class members, often including
+//some logic to ensure the validity of the data.
 
+
+// In C#, what term is used to describe the special methods
+// associated with properties that get executed when
+// you set or get the value?
+
+// accessor, accessors refer to the get and set methods within properties.
+
+
+//Auto-implemented properties are best suited when: you need a simple
+//way to get or set the value without any additional logic
+//Auto-implemented properties are best when you need a
+//simple way to get or set values without additional logic.
